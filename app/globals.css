@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C0B87A;
+  --color-secondary: #427A43;
+  --color-accent: #005F02;
+  --color-dark: #011403;
+  --color-dark-lighter: #022405;
+  --color-cream: #F2E3BB;
+  
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-syne);
+  --font-code: var(--font-jetbrains);
+}
+
+:root {
+  --background: #011403;
+  --foreground: #F2E3BB;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Print Styles for Resume */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  nav, footer {
+    display: none !important;
+  }
+  
+  @page {
+    margin: 0.5in;
+    size: A4;
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-dark);
+}
